@@ -13,11 +13,9 @@ if(isset($_POST['submit']))
 		$original_url=$_POST['url'];
 		if(substr($original_url,0,4)=="www.")
 			$original_url="http://".$original_url;
-		$head=substr($original_url, 0,11);
-		// var_dump($head);
-		$len=strlen($original_url)-15;
+		$len=strlen($original_url);
 		$check=filter_var($original_url, FILTER_VALIDATE_URL);
-		if(!$check=== false && $len>7 && $head=="http://www.")
+		if(!$check=== false && $len>25)
 		{
 			$query="SELECT * from urlshortner where original_url='$original_url'";
 			if($result=$connect->query($query))
@@ -40,10 +38,7 @@ if(isset($_POST['submit']))
 		{	
 			if(!$check)
 				$err="Invalid URL, URL must be in this format 'http://www.example.com'";
-			elseif ($head!="http://www.") {
-				$err="URL must be in this format 'http://www.example.com'";
-			}
-			elseif($len<=7)
+			elseif($len<=25)
 				$err="It is already a short URL, Doesn't need to shorten";
 			unset($_POST['submit']);
 		}
@@ -64,6 +59,14 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
 			if($result=$connect->query($query))
 				header('Location:'.$row['original_url']);
 		}
+		else
+		{
+			die("Invalid URL");
+		}
+	}
+	else
+	{
+		die("Invalid URL");
 	}
 }
 
@@ -103,7 +106,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
 	    	<label id="login_label">Link of your website</label>
 	        <input type="text" name="url" id="url" value="<?php echo $original_url; ?>" placeholder="Ex- http://www.example.com" >
 	        <label>Generated short URL</label>
-	        <input type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/index.php/'.$short_url; ?>" placeholder="Short URL">
+	        <input type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/u.php/'.$short_url; ?>" placeholder="Short URL">
 	        <?php
 	    }
 	    ?>
