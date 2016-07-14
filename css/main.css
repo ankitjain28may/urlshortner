@@ -67,23 +67,24 @@ a {
 
 .main {
 	width: 60%;
-	margin: 100px 20% 30px 20%;
+	margin: 100px 20% 50px 20%;
 	padding: 5%;
 	text-align: center;
 	/*margin-top: 100px;*/
+	/*height: 120%;*/
 	background-color: #fff;
 	line-height: 45px;
 
 }
 
 #url {
-	width: 600px;
+	width: 95%;
 	height: 30px;
 	text-indent: 10px;
 }
 
 #short {
-	width: 600px;
+	width: 90%;
 	height: 30px;
 	text-indent: 10px;
 }
@@ -111,6 +112,15 @@ a {
 	letter-spacing: 1px;
 	padding: 10px;		
 }
-.footer_text a {
-	color: black;
+#font_set
+{
+	line-height: 0px;
+}
+.copy {
+	border: 1px solid;
+	padding: 6px;
+	width: 100%;
+	margin-left: 0;
+	cursor: pointer;
+	/*background-color: grey;*/
 }

@@ -71,11 +71,14 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
 }
 
 ?>
+
+
 <!Doctype html>
 <html>
 	<head>
 		<title>URL Shortner</title>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
 	</head>
 	<body>
 
@@ -106,11 +109,19 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
 	    	<label id="login_label">Link of your website</label>
 	        <input type="text" name="url" id="url" value="<?php echo $original_url; ?>" placeholder="Ex- http://www.example.com" >
 	        <label>Generated short URL</label>
-	        <input type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/u.php/'.$short_url; ?>" placeholder="Short URL">
-	        <?php
-	    }
-	    ?>
-        </div>
+	        <div class="input-group margin-bottom-sm">
+				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/u.php/'.$short_url; ?>" placeholder="Short URL">
+				<span class="input-group-addon copy" onclick="copyText(event)"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
+			</div>
+	        
+	        	        <?php
+	        	    }
+	        	    ?>
+	    </div>  
 
+	    <div class="footer">
+	    	<div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+	    </footer>      
     </body>
+    <script type="text/javascript" src="index.js"></script>
 </html>
