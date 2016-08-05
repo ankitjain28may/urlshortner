@@ -8,7 +8,7 @@ $print="";
 $err="";
 if(isset($_POST['submit']))
 {
-	if(!empty(trim($_POST['url'])))
+    if(!empty(trim($_POST['url'])))
 	{	
 		$original_url=$_POST['url'];
 		if(substr($original_url,0,4)=="www.")
@@ -45,10 +45,10 @@ if(isset($_POST['submit']))
 	}
 }
 
-else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
+else if(!empty(substr($_SERVER['PATH_INFO'],1)))
 {	
 	
-	$short_url=substr($_SERVER['REQUEST_URI'],23);
+	$short_url=substr($_SERVER['PATH_INFO'],1);
 	$query="SELECT * from urlshortner where short_url='$short_url'";
 	if($result=$connect->query($query))
 	{
@@ -110,7 +110,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
 	        <input type="text" name="url" id="url" value="<?php echo $original_url; ?>" placeholder="Ex- http://www.example.com" >
 	        <label>Generated short URL</label>
 	        <div class="input-group margin-bottom-sm">
-				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/u.php/'.$short_url; ?>" placeholder="Short URL">
+				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/'.$short_url; ?>" placeholder="Short URL">
 				<span class="input-group-addon copy" onclick="copyText(event)"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
 			</div>
 	        
@@ -125,3 +125,4 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],23)))
     </body>
     <script type="text/javascript" src="index.js"></script>
 </html>
+
