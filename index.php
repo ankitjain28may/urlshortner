@@ -45,17 +45,18 @@ if(isset($_POST['submit']))
 	}
 }
 
-else if(!empty(substr($_SERVER['PATH_INFO'],1)))
+else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 {	
 	
 	$short_url=substr($_SERVER['PATH_INFO'],1);
-	$query="SELECT * from urlshortner where short_url='$short_url'";
+	// echo $short_url;
+	$query="SELECT * from urlshortner where short_url COLLATE latin1_general_cs ='$short_url' ";
 	if($result=$connect->query($query))
 	{
 		if($result->num_rows>0)
 		{
 			$row=$result->fetch_assoc();
-			$query="UPDATE urlshortner set click_info=click_info+1 where short_url='$short_url'";
+			$query="UPDATE urlshortner set click_info=click_info+1 where short_url COLLATE latin1_general_cs ='$short_url'";
 			if($result=$connect->query($query))
 				header('Location:'.$row['original_url']);
 		}
