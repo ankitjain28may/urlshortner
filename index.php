@@ -4,12 +4,13 @@ require 'short.php';
 $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 $original_url="";
 $short_url="";
+$check_url = "";
 $print="";
 $err="";
 if(isset($_POST['submit']))
 {
     if(!empty(trim($_POST['url'])))
-	{	
+	{
 		$original_url=$_POST['url'];
 		if(substr($original_url,0,4)=="www.")
 			$original_url="http://".$original_url;
@@ -24,7 +25,7 @@ if(isset($_POST['submit']))
 				{
 					$row=$result->fetch_assoc();
 					$print="This URL is already being generated before";
-					$short_url=$row['short_url'];
+					$short_url=convert_uudecode($row['short_url']);
 					// var_dump($short_url);
 				}
 				else
@@ -35,7 +36,7 @@ if(isset($_POST['submit']))
 			}
 		}
 		else
-		{	
+		{
 			if(!$check)
 				$err="Invalid URL, URL must be in this format 'http://www.example.com'";
 			elseif($len<=25)
@@ -46,17 +47,18 @@ if(isset($_POST['submit']))
 }
 
 else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
-{	
-	
+{
+
 	$short_url=substr($_SERVER['PATH_INFO'],1);
 	// echo $short_url;
-	$query="SELECT * from urlshortner where short_url COLLATE latin1_general_cs ='$short_url' ";
+	$check_url = convert_uuencode($short_url);
+	$query="SELECT * from urlshortner where short_url ='$check_url'";
 	if($result=$connect->query($query))
 	{
 		if($result->num_rows>0)
 		{
 			$row=$result->fetch_assoc();
-			$query="UPDATE urlshortner set click_info=click_info+1 where short_url COLLATE latin1_general_cs ='$short_url'";
+			$query="UPDATE urlshortner set click_info=click_info+1 where short_url ='$check_url'";
 			if($result=$connect->query($query))
 				header('Location:'.$row['original_url']);
 		}
@@ -89,7 +91,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
                 <li><a href="http://www.github.com/ankitjain28may/urlshortner">Github</a></li>
             </ul>
         </div>
-		
+
         <div class="main">
             <h1>Shorten your URL</h1>
             <hr><br>
@@ -114,15 +116,16 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/'.$short_url; ?>" placeholder="Short URL">
 				<span class="input-group-addon copy" onclick="copyText(event)"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
 			</div>
-	        
+
 	        	        <?php
 	        	    }
 	        	    ?>
-	    </div>  
+	    </div>
+
 
 	    <div class="footer">
 	    	<div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
-	    </footer>      
+	    </footer>
     </body>
     <script type="text/javascript" src="index.js"></script>
 </html>

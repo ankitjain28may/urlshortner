@@ -16,7 +16,7 @@ class short
 	{
 		$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		$this->original_url=$original_url;
-		$time=date("D d M Y H:i:s", time()+16200);	
+		$time=date("D d M Y H:i:s", time()+16200);
 		$query="INSERT INTO urlshortner values(null,'$this->original_url','$this->original_url',0,'$time')";
 		if($result=$connect->query($query))
 		{
@@ -25,13 +25,14 @@ class short
 			{
 				$row=$result->fetch_assoc();
 				$id=intval($row['id']);
-				while ($id>0) 
+				while ($id>0)
 				{
 					$this->short_url=$this->short_url.$this->arr[($id%52)-1];
 					$id=intval($id/52);
 				}
 				// $this->short_url="localhost/urlshortner/index.php/".$this->short_url;
-				$query="UPDATE urlshortner set short_url='$this->short_url' where original_url='$this->original_url'";
+				$check_url = convert_uuencode($this->short_url);
+				$query="UPDATE urlshortner set short_url='$check_url' where original_url='$this->original_url'";
 				if($result=$connect->query($query))
 				{
 					return $this->short_url;
