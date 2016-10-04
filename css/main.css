@@ -33,7 +33,7 @@ a {
 .header ul li {
 	display: inline-block;
 	letter-spacing: 2px;
-	
+
 }
 .header ul li a{
 	display: block;
@@ -89,6 +89,11 @@ a {
 	text-indent: 10px;
 }
 
+#submit a {
+	display: block;
+	color: black;
+}
+
 
 #submit {
 	width: 200px;
@@ -110,7 +115,7 @@ a {
 	color: white;
 	word-spacing: 2px;
 	letter-spacing: 1px;
-	padding: 10px;		
+	padding: 10px;
 }
 #font_set
 {
