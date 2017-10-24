@@ -129,3 +129,42 @@ a {
 	cursor: pointer;
 	/*background-color: grey;*/
 }
+
+@media screen and (max-width: 800px) {
+    .main{
+    width: 85%;
+    padding: 10% 0 0 0;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+    height: 85vh;
+    margin: 10% auto;
+    font-size: 350%;
+}
+	h1, h2, h3, h4 {
+	    font-size: 100%;
+	    padding: 10%;
+	}
+	
+	#submit {
+        margin: 30% 0 0 0;
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+    font-size: 100%;
+    bottom: 0;
+}
+	
+	#url {
+        width: 95%;
+    height: 4vh;
+    text-indent: 10px;
+    font-size: 75%;
+    margin: 5% 0 45% 0;
+}
+	form {
+    margin: 50% 0 0 0;
+}
+	
+	
+   }
