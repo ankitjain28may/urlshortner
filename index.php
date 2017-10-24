@@ -82,6 +82,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 		<title>URL Shortner</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 
