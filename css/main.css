@@ -67,11 +67,9 @@ a {
 
 .main {
 	width: 60%;
-	margin: 100px 20% 50px 20%;
+	margin: 0 auto; /* Centralize */
 	padding: 5%;
 	text-align: center;
-	/*margin-top: 100px;*/
-	/*height: 120%;*/
 	background-color: #fff;
 	line-height: 45px;
 
@@ -128,4 +126,16 @@ a {
 	margin-left: 0;
 	cursor: pointer;
 	/*background-color: grey;*/
+}
+
+/* For mobile screens */
+@media only screen and (max-width: 600px) {
+
+	.main {
+		width: 80%;
+	}
+
+	#submit {
+		width: 100px;
+	}
 }
