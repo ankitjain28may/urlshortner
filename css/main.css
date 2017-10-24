@@ -129,3 +129,13 @@ a {
 	cursor: pointer;
 	/*background-color: grey;*/
 }
+
+@media only screen and (max-device-width: 700px) {
+	label {
+		font-size: 25px;
+	}
+	input, button {
+		height: 50px;
+		font-size: 20px;
+	}
+}
