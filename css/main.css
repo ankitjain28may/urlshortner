@@ -129,3 +129,31 @@ a {
 	cursor: pointer;
 	/*background-color: grey;*/
 }
+@media only screen and (max-width: 700px)
+{
+	.main
+	{
+		height: 80%!important;
+		width: 80%;
+		margin-top: 25%;
+		float: center;
+		margin-left: 7%;
+
+		
+	}
+	.main h1
+	{
+		font-size: 1.5em;
+	}
+	#url
+	{
+		margin-top: 1%;
+		width: 90%;
+		
+	}
+	#short
+	{
+		width: 90%;
+	}
+
+}
