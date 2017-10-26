@@ -76,61 +76,24 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 ?>
 
 
-<!Doctype html>
-<html>
-	<head>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>URL Shortner</title>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
-	</head>
-	<body>
+<!Doctype html>		  <!Doctype html>
+  <html>		  <html>
+  	<head>		  	<head>
+ +        <meta name="viewport" content="width=device-width,initial-scale=1" />
+  		<title>URL Shortner</title>		  		<title>URL Shortner</title>
+          <link rel="stylesheet" href="css/main.css">		          <link rel="stylesheet" href="css/main.css">
+          <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">		          <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
+ @@ -124,8 +125,10 @@
+  	    </div>		  	    </div>
+  		  
+  		  
+ -	    <div class="footer">		 +        <footer>
+ -	    	<div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>		 +            <div class="footer">
+ +                <div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+ +            </div>
+  	    </footer>		  	    </footer>
+      </body>		      </body>
+      <script type="text/javascript" src="index.js"></script>		      <script type="text/javascript" src="index.js"></script>
 
-        <div class="header">
-            <a id="brand" href="">URL Shortner</a>
-            <ul class="nav-right">
-                <li><a href="http://www.github.com/ankitjain28may/urlshortner">Github</a></li>
-            </ul>
-        </div>
-
-        <div class="main">
-            <h1>Shorten your URL</h1>
-            <hr><br>
-      		<?php if(empty($_POST['submit']))
-      		{
-      			?>
-            <form method="POST" action="">
-	            <label id="login_label">Link of your website</label><p style="color:red;"><?php echo $err; ?></p>
-	            <input type="text" name="url" id="url" value="<?php echo $original_url; ?>" placeholder="Ex- http://www.example.com" >
-	            <input type="submit" name="submit" id="submit" value="Submit">
-	        </form>
-	        <?php
-	    }
-	    else
-	    {
-	    	?>
-	    	<p style="color:green;"><?php echo $print; ?></p>
-	    	<label id="login_label">Link of your website</label>
-	        <input type="text" name="url" id="url" value="<?php echo $original_url; ?>" placeholder="Ex- http://www.example.com" >
-	        <label>Generated short URL</label>
-	        <div class="input-group margin-bottom-sm">
-				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/'.$short_url; ?>" placeholder="Short URL">
-				<span class="input-group-addon copy" onclick="copyText(event)"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
-			</div>
-            <button id="submit"><a href="/">Back</a></button>
-
-	        	        <?php
-	        	    }
-	        	    ?>
-	    </div>
-
-
-        <footer>
-            <div class="footer">
-                <div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
-            </div>
-	    </footer>
-    </body>
-    <script type="text/javascript" src="index.js"></script>
 </html>
 
