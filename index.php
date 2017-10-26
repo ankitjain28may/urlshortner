@@ -125,8 +125,10 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 	    </div>
 
 
-	    <div class="footer">
-	    	<div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+        <footer>
+            <div class="footer">
+                <div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+            </div>
 	    </footer>
     </body>
     <script type="text/javascript" src="index.js"></script>
