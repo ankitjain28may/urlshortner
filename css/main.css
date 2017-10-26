@@ -129,3 +129,15 @@ a {
 	cursor: pointer;
 	/*background-color: grey;*/
 }
+
+
+
+@media all and (max-width: 767px) {
+
+	.main {
+		width: 1200px;
+		max-width: 90%;
+		margin: 100px auto 50px auto;
+	}
+
+}

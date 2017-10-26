@@ -79,6 +79,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 <!Doctype html>
 <html>
 	<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title>URL Shortner</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
@@ -124,8 +125,10 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 	    </div>
 
 
-	    <div class="footer">
-	    	<div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+        <footer>
+            <div class="footer">
+                <div class="footer_text">Made by <a href="http://ankitjain.surge.sh">Ankit Jain</a></div>
+            </div>
 	    </footer>
     </body>
     <script type="text/javascript" src="index.js"></script>
