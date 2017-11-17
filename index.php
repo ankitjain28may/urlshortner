@@ -117,7 +117,7 @@ else if(!empty(substr($_SERVER['REQUEST_URI'],13)))
 				<input class="form-control" type="text" name="short" id="short" value="<?php echo 'localhost/urlshortner/'.$short_url; ?>" placeholder="Short URL">
 				<span class="input-group-addon copy" onclick="copyText(event)"><i class="fa fa-clipboard" aria-hidden="true"></i></span>
 			</div>
-            <button id="submit"><a href="/">Back</a></button>
+            <a href="/"><button id="submit">Back</button></a>
 
 	        	        <?php
 	        	    }
