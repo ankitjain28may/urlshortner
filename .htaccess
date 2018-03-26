@@ -3,3 +3,8 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /urlshortner/
 RewriteRule ^([a-zA-Z0-9]+)$ index.php/$1 [NC,L]
+
+# 1 Week for most static assets
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+Header set Cache-Control "max-age=604800, public"
+</filesMatch>
